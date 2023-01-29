@@ -6,7 +6,7 @@
 #    By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 16:54:33 by rleslie-          #+#    #+#              #
-#    Updated: 2023/01/29 18:45:38 by rleslie-         ###   ########.fr        #
+#    Updated: 2023/01/29 18:50:47 by rleslie-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -15,7 +15,6 @@ SRCS = src/draw.c src/events.c src/main.c src/read_map.c src/utils.c
 OBJ := ${.c=.o}
 FLAGS = -lmlx -lm -lX11 -lXext -Imlx -lXext -Wall -Wextra -Werror
 INCLUDES = libft/libft.a
-
 
 all: $(NAME)
 
