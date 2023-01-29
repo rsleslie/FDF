@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:02:57 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/27 15:48:15 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:21:00 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int		close_esc(int keysym, t_fdf*data);
 int		ft_hex_atoi(char *num, char *hex, int x);
 char	*ft_conversion_isalpha(char *num);
 void	isometric(float *x, float *y, int z);
+void    ft_free(t_fdf *data);
 
 #endif

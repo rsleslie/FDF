@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:12:11 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/27 17:57:33 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:12:30 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ int	close_esc(int keysym, t_fdf *data)
 		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 		mlx_destroy_display(data->mlx_ptr);
 		free(data->mlx_ptr);
+		ft_free(data);
 		exit(0);
 	}
 	return (0);
@@ -31,6 +32,7 @@ int	close_x(t_fdf *data)
 	mlx_destroy_window(data->mlx_ptr, data->win_ptr);
 	mlx_destroy_display(data->mlx_ptr);
 	free(data->mlx_ptr);
+	ft_free(data);
 	exit(0);
 	return (0);
 }

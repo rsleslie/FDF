@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 15:10:19 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/27 17:54:30 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 17:56:56 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,23 @@ int	ft_max(float a, float b)
 		return (a);
 	else
 		return (b);
+}
+
+void    ft_free(t_fdf *data)
+{
+	int i;
+
+	i = 0;
+	while(i < data->height && data->z_matrix[i] && data->z_color[i])
+	{
+		free(data->z_matrix[i]);
+		free(data->z_color[i]);
+		i++;
+	}
+    if (data->z_matrix)
+	    free(data->z_matrix);
+    if (data->z_color)
+	    free(data->z_color);
 }
 
 void	ft_shift(t_fdf *data, t_score *point)
@@ -41,7 +58,7 @@ int	ft_hex_atoi(char *num, char *hex, int x)
 	int		i;
 	int		size_num;
 	int		value_dec;
-
+	
 	size_num = ft_strlen(num) - x;
 	num = ft_conversion_isalpha(num);
 	value_dec = 0;
@@ -59,6 +76,7 @@ int	ft_hex_atoi(char *num, char *hex, int x)
 		}
 		x++;
 	}
+	free(num);
 	return (value_dec);
 }
 
@@ -68,7 +86,9 @@ char	*ft_conversion_isalpha(char *num)
 	char	*new_num;
 
 	new_num = (char *)malloc(sizeof(char) * ft_strlen(num) + 1);
-	new_num[ft_strlen(num) + 1] = '\0';
+	if(!new_num)
+		return(NULL);
+	new_num[ft_strlen(num)] = '\0';
 	i = 0;
 	while (num[i] != '\0')
 	{
@@ -80,5 +100,6 @@ char	*ft_conversion_isalpha(char *num)
 		}
 		i++;
 	}
+	free(num);
 	return (new_num);
 }
