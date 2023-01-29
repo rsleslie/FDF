@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:00:17 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/29 18:20:30 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:32:15 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,18 @@
 
 void	inc_matrix(t_fdf *data, char *str1, int y, int x)
 {
-    int i;
+	int		i;
 	char	**value_two;
-	
-    i = 0;
+
+	i = 0;
 	if (ft_strchr(str1, ',') && str1)
 	{
 		value_two = ft_split(str1, ',');
 		data->z_matrix[y][x] = ft_atoi(value_two[0]);
 		data->z_color[y][x] = ft_hex_atoi(value_two[1], \
 		"0123456789abcdef", 2);
-        free(value_two[0]);
-        free(value_two);
+		free(value_two[0]);
+		free(value_two);
 	}
 	else
 	{
@@ -39,11 +39,10 @@ void	value_matrix(t_fdf *data, char *file_name, int x, int y)
 	char	**value_one;
 	int		fd;
 	char	*line;
-	
+
 	fd = open(file_name, O_RDONLY, 0);
 	line = get_next_line(fd);
 	value_one = ft_split(line, ' ');
-	y = 0;
 	while (line)
 	{
 		x = 0;
@@ -52,13 +51,12 @@ void	value_matrix(t_fdf *data, char *file_name, int x, int y)
 			inc_matrix(data, value_one[x], y, x);
 			x++;
 		}
-        free(line);
-        x = 0;
-        while(value_one[x])
-            free(value_one[x++]);
-        free(value_one);
+		free(line);
+		x = 0;
+		while (value_one[x])
+			free(value_one[x++]);
+		free(value_one);
 		line = get_next_line(fd);
-        x = 0;
 		if (line)
 			value_one = ft_split(line, ' ');
 		y++;
@@ -67,21 +65,21 @@ void	value_matrix(t_fdf *data, char *file_name, int x, int y)
 
 int	get_heigth(char *file_name)
 {
-	int	fd;
-	int	height;
-    char *line;
+	int		fd;
+	int		height;
+	char	*line;
 
 	fd = open(file_name, O_RDONLY, 0);
 	height = 0;
-    line = get_next_line(fd);
+	line = get_next_line(fd);
 	while (line)
-    {
-        height++;
-        if (line)
-            free(line);
-        line = get_next_line(fd);
-    }
-    free(line);
+	{
+		height++;
+		if (line)
+			free(line);
+		line = get_next_line(fd);
+	}
+	free(line);
 	close(fd);
 	return (height);
 }

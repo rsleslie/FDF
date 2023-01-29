@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 16:00:11 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/29 16:16:28 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:26:02 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,5 @@ int	main(int argc, char **argv)
 	draw(&data);
 	mlx_put_image_to_window(data.mlx_ptr, data.win_ptr, data.img, 0, 0);
 	mlx_loop(data.mlx_ptr);
-    // ft_free(&data);
 	return (0);
 }

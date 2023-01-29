@@ -6,7 +6,7 @@
 /*   By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/23 17:12:11 by rleslie-          #+#    #+#             */
-/*   Updated: 2023/01/29 18:12:30 by rleslie-         ###   ########.fr       */
+/*   Updated: 2023/01/29 18:35:00 by rleslie-         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,12 @@ void	isometric(float *x, float *y, int z)
 {
 	*x = (*x - *y) * cos(0.8);
 	*y = (*x + *y) * sin(0.8) - z;
+}
+
+void	zoom(t_fdf *data, t_score *point)
+{
+	point->x *= data->zoom;
+	point->x1 *= data->zoom;
+	point->y *= data->zoom;
+	point->y1 *= data->zoom;
 }
