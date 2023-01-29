@@ -6,7 +6,7 @@
 #    By: rleslie- <rleslie-@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/23 16:54:33 by rleslie-          #+#    #+#              #
-#    Updated: 2023/01/29 16:22:40 by rleslie-         ###   ########.fr        #
+#    Updated: 2023/01/29 18:45:38 by rleslie-         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,7 @@ all: $(NAME)
 
 $(NAME):$(OBJ)
 	@make -C libft
-	cc -g3 $(SRCS) $(INCLUDES) $(FLAGS) -o $(NAME)
+	cc $(SRCS) $(INCLUDES) $(FLAGS) -o $(NAME)
 
 clean:
 		@make fclean -C libft
